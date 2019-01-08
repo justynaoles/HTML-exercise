@@ -6,9 +6,10 @@ var browserSync = require('browser-sync').create();
 var concat = require('gulp-concat');
 var runSequence = require('run-sequence');
 var cleanCSS = require('gulp-clean-css');
+var gutil = require('gulp-util');
+const babili = require("gulp-babili");
 
 sass.compiler = require('node-sass');
-
 
 //Tasks:
 
@@ -39,7 +40,7 @@ gulp.task('sass', () => {
 
 
   gulp.task("concat", function(){
-    return gulp.src('./src/js/*.js')
+    return gulp.src('./src/js/main.js')
       .pipe(concat('main.js'))
       .pipe(gulp.dest('./dist/js'));
   })
@@ -49,6 +50,20 @@ gulp.task('sass', () => {
       .pipe(cleanCSS({compatibility: 'ie8'}))
       .pipe(gulp.dest('./dist/css/'));
   });
+
+  gulp.task('scripts', function () {
+    return gulp.src(['./src/js/main.js'])
+    .pipe(concat('main.min.js'))
+    .pipe(babili({
+      mangle: {
+        keepClassNames: true
+      }
+    }))
+    .on('error', function (err) {
+      gutil.log(gutil.colors.red('[Error]'), err.toString());
+    })
+    .pipe(gulp.dest('./dist/js'));
+  })
 
 
   gulp.task('watch', function(){
