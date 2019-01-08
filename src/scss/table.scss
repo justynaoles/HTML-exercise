@@ -1,0 +1,168 @@
+@import 'variables';
+@import 'mixins';
+.table {
+    padding-bottom: 72px;
+}
+
+.table_list {
+    counter-reset: circle-counter;
+    padding-bottom: 58px;
+
+    @media (min-width: $tablet) {
+        padding-bottom: 85px;
+    }
+    .list_item {
+        counter-increment: circle-counter;
+        display: flex;
+        align-items: center;
+        height: 20px;
+        font-size: 15px;
+        line-height: 20px;
+        margin-bottom: 18px;
+        &::before {
+            display: inline-block;
+            content: counter(circle-counter);
+            height: 20px;
+            width: 20px;
+            background-color: $main-blue;
+            margin-right: 9px;
+            border-radius: 50%;
+            text-align: center;
+            padding: 2px;
+            color: $white;
+        }
+    }
+}
+
+.table_main {
+    border: $border-table;
+}
+
+.table_thead {
+    border-bottom: $border-table;
+    th:nth-of-type(1) {
+        background-color: $medium-blue;
+        padding: 0;
+    }
+    th {
+        background-color: $light-blue;
+        font-size: 15px;
+        line-height: 25px;
+        font-weight: 800;
+        text-transform: uppercase;
+        color: $main-blue;
+        padding: 5px 20px;
+        @media (min-width: $tablet) {
+            padding: 5 50px 5 90px;
+            font-size: 15px;
+            line-height: 50px;
+        }
+        @media (min-width: $desktop) {
+            padding: 5px 70px 5px 120px;
+        }
+    }
+}
+
+.table_tbody {
+    .tbody_tr {
+        border-bottom: $border-table;
+        td {
+            background-color: $white;
+            font-size: 15px;
+            line-height: 35px;
+            color: $dark-grey;
+            padding-left: 20px;
+            text-align: left;
+            @media (min-width: $tablet) {
+                padding-left: 90px;
+                line-height: 50px;
+            }
+            @media (min-width: $desktop) {
+                padding-left: 130px;
+            }
+        }
+        th {
+            background-color: $light-blue;
+            color: $dark-grey;
+            padding: 5px 26px 5px 46px;
+            line-height: 35px;
+            @media (min-width: $tablet) {
+                line-height: 50px;
+            }
+        }
+    }
+}
+
+.table_options {
+    padding-top: 40px;
+    display: flex;
+    flex-direction: column;
+    div:nth-of-type(1) {
+        padding-bottom: 30px;
+    }
+    @media (min-width: 600px) {
+        flex-direction: row;
+        div:nth-of-type(1) {
+            padding: 0 140px 0 0;
+        }
+    }
+    @media (min-width: $tablet) {
+        padding-top: 84px;
+    }
+}
+
+.options {
+    display: flex;
+    flex-direction: column;
+    .options_option {
+        position: relative;
+        padding-bottom: 15px;
+    }
+    .option_title {
+        margin-left: 30px;
+        line-height: 18px;
+    }
+    input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+    }
+    .checkmark,
+    .checkmark-tick {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 18px;
+        width: 18px;
+        border: $border-table;
+    }
+    .checkmark:after,
+    .checkmark-tick:after {
+        content: "";
+        position: absolute;
+        display: none;
+    }
+    input:checked~.checkmark:after,
+    input:checked~.checkmark-tick:after {
+        display: block;
+    }
+    .checkmark:after {
+        width: 10px;
+        height: 10px;
+        background-color: $main-blue;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .checkmark-tick:after {
+        width: 6px;
+        height: 12px;
+        border: solid $main-blue;
+        border-width: 0 3px 3px 0;
+        transform: rotate(45deg);
+        left: 6px;
+        top: -5px;
+    }
+}

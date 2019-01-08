@@ -1,0 +1,21 @@
+@import 'variables';
+@import 'mixins';
+.requirements {
+    padding-top: 45px;
+    .requirements_list {
+        padding-bottom: 55px;
+    }
+    .list_item {
+        display: flex;
+        align-items: center;
+        min-height: 33px;
+        &::before {
+            display: block;
+            content: '';
+            height: 6px;
+            width: 6px;
+            background-color: $main-blue;
+            margin-right: 9px;
+        }
+    }
+}

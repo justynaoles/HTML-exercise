@@ -1,0 +1,9 @@
+//position: center
+@mixin center($auto) {
+    margin-left: $auto;
+    margin-right: $auto;
+}
+
+
+
+

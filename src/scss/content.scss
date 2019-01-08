@@ -1,0 +1,12 @@
+@import 'variables';
+@import 'mixins';
+.content {
+    width: $standard-width;
+    @include center(auto);
+    padding-bottom: 50px;
+    @media (min-width: $desktop) {
+        width: $max-width;
+        padding-right: 80px;
+        padding-bottom: 190px; 
+    }
+}

@@ -1,0 +1,50 @@
+@import 'variables';
+@import 'mixins';
+.headings {
+    p:nth-of-type(3) {
+        padding-right: 150px;
+    }
+    @media (min-width: $desktop) {
+        p:nth-of-type(3) {
+            padding-right: 246px;
+        }
+    }
+}
+
+.headings_header1 {
+    font-size: 30px;
+    line-height: 49px;
+    font-weight: 800;
+    color: $main-blue;
+    text-transform: uppercase;
+    padding-bottom: 24px;
+}
+
+.headings_header2 {
+    padding: 61px 0 26px 0;
+    font-size: 24px;
+    line-height: 49px;
+    font-weight: 800;
+    color: $main-blue;
+    text-transform: uppercase;
+}
+
+.headings_header3 {
+    font-size: 18px;
+    font-weight: 800;
+    color: $main-blue;
+    padding: 57px 0 20px 0;
+}
+
+.headings_header4 {
+    font-size: 15px;
+    font-weight: 800;
+    color: $main-blue;
+    padding-top: 60px;
+}
+
+.headings_paragraph {
+    font-size: 15px;
+    line-height: 22px;
+    color: $grey;
+}

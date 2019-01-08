@@ -1,0 +1,27 @@
+@import 'variables';
+@import 'mixins';
+.links {
+    padding-top: 60px;
+    a {
+        text-decoration: none;
+        color: $main-blue;
+        &:link {
+            color: $main-blue;
+        }
+        &:visited {
+            color: $visited-link;
+        }
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+.links_title {
+    display: block;
+}
+
+.links_link {
+    display: block;
+    padding-top:18px;
+}
