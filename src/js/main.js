@@ -112,7 +112,7 @@ $(document).ready(function() {
 				 ) {
 	
 				alert("Formularz został wysłany.");
-				console.log("okej")	
+			
 			}
 	
 			else {
