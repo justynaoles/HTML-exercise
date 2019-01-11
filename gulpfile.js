@@ -23,7 +23,7 @@ gulp.task('browserSync', () => {
 
     browserSync.init({
         server: {
-            baseDir: 'abventor'
+            baseDir: './'
         },
 
     });
